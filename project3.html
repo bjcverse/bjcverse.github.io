@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Converse - Project 3 Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Project 3 - Turtle Scene with Refactored Code</h1>
+    </header>
+
+    <!-- Project Description -->
+    <section>
+        <h2>About the Project</h2>
+        <p>This project is built off of the turtle scene we drew in project 2, an assignment that did not allow for
+            the use of new functions. In this project, I used the provided functions (draw_rectangle, draw_square,
+            draw_triangle, draw_circle, draw_polygon, draw_curve, etc.) to create new, generalized functions that could
+            be reused to create a more complex scene. <br><br>For my castle scene, I tried to build in functionality that would
+            allow for building geometry of any size to be drawn, or windows to be algorithmically placed on walls rather
+            than individually. The main area where improvement can be seen is with the trees in the forest outside, where
+            they can now be any size or color that you wish.
+</p>
+    </section>
+
+    <!-- Code highlights -->
+    <section>
+        <h2>Sample Code</h2>
+        <p>
+           The function I made here generates an individual tree, allowing any size or color to create a vast and unique
+           forest quickly. For example, a loop with a random number generator could be used to automatically generate a new
+           scene each time the program runs. 
+            <br><br>
+            • <strong>t</strong>: The turtle graphics object for drawing<br>
+            • <strong>x, y</strong>: Starting position coordinates for the tree<br>
+            • <strong>width, height, radius</strong>: Control the size of the trunk and leaves<br>
+            • <strong>color</strong>: The color of the leaves, allowing for a variety of tree types to be drawn<br>
+        </p>
+        
+        <div class="code-container">
+    <code><span class="keyword">def</span> <span class="function">draw_tree</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">width</span>=<span class="string">20</span>, <span class="parameter">height</span>=<span class="string">80</span>, <span class="parameter">radius</span>=<span class="string">25</span>, <span class="parameter">color</span>=<span class="string">"darkgreen"</span>):
+    <span class="comment">"""Draw a tree"""</span>
+    <span class="parameter">leaf_start</span> = <span class="parameter">width</span> / <span class="string">2</span> <span class="comment"># Make sure the leaves are centered on the tree trunk</span>
+    <span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span>, <span class="parameter">y</span>)
+    <span class="parameter">t</span>.<span class="function">setheading</span>(<span class="string">180</span>) <span class="comment"># Make sure the tree is pointing up</span>
+    <span class="function">draw_rectangle</span>(<span class="parameter">t</span>, <span class="parameter">width</span>, <span class="parameter">height</span>, <span class="string">"chocolate4"</span>) <span class="comment"># Draw Trunk</span>
+    <span class="function">jump_to</span>(<span class="parameter">t</span>, <span class="parameter">x</span>-<span class="parameter">leaf_start</span>, <span class="parameter">y</span>+<span class="parameter">height</span>+<span class="parameter">leaf_start</span>)
+    <span class="function">draw_circle</span>(<span class="parameter">t</span>, <span class="parameter">radius</span>, <span class="parameter">color</span>) <span class="comment"># Draw Leaves</span></code>
+</div>
+    </section>
+        
+    <!-- the scene -->
+    <section>
+        <h2>Final Scene</h2>
+        
+        <div class="scene-container">
+            <img src="Project3.png" alt="Turtle Graphics Scene - A dignified castle underneath a cloudless blue sky, sitting at the edge of a forest filled with a variety of circular trees. Red flags stand tall atop the towers." class="scene-image">
+        </div>
+        
+        <p class="scene-description">
+            My scene uses a variety of simple shapes to craft a more complex and engaging image. The castle is based on three rectangles,
+            with two cones topping off the towers on either end. Triangular flags are on top of each tower, and a geometric shape serves
+            as an emblem for whomever the castle belongs to. The sun uses a yellow circle. The terrain features such as grass, a moat, and
+            the road use rectangles, and the trees are comprised of a rectangular trunk and circular leaves. The scene represents a time of 
+            peace and, as such, no weapons or soldiers are present. 
+        </p>
+    </section>
+
+     <footer>
+        <p>© 2026 James Converse <br>
+            Background Images From: <a href="https://unsplash.com/">https://unsplash.com/</a> <br>
+            HTML Base From: Professor Aye's demo file.</p>
+    </footer>
+</body>
+</html>

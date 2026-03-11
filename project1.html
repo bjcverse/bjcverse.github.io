@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Converse - Project 1 Showcase</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Project 1 - Basic Turtle Scene</h1>
+    </header>
+
+    <!-- Project Description -->
+    <section>
+        <h2>About the Project</h2>
+        <p>This project demonstrates the use of basic turtle graphics to create a simple scene. It served as an introduction
+            to python programming and showcases what one can do with simple instructions to a computer. My scene was a beach
+            on the ocean at night with fireworks blasting in the midnight sky. <br><br>
+            The main area I'm proud of with this project is the randomization of the fireworks and stars. No two scenes will
+            be the same when the program is run, with the placement of the stars, placement of the fireworks, and the colors
+            and size of the fireworks all being based on a random number generator. Importantly, they are still prevented 
+            from going off the screen and or on top of the moon (for stars) via constraints on the random module. 
+</p>
+    </section>
+
+    <!-- Code highlights -->
+    <section>
+        <h2>Sample Code</h2>
+        <p>
+           These are two of the functions I created for this project. The first one draws a single firework based on 
+           parameters for coordinates, size, and color. The second function calls the first one between 12 and 18 times 
+           to put on a fireworks show for the user. It uses random.int() and random.choice() to generate unique 
+           parameters for each firework. 
+            <br><br>
+            • <strong>x, y</strong>: Starting position coordinates for the firework<br>
+            • <strong>size</strong>: Control the size of the firework<br>
+            • <strong>color</strong>: The color of the firework, allowing for a variety of effects to be created<br>
+            • <strong>min_size</strong>: The minimum size of a firework<br>
+            • <strong>max_size</strong>: The maximum size of a firework<br>
+        </p>
+        
+        <div class="code-container">
+    <code><span class="comment"># Draws a single firework with parameters for coordinate, size, and color.</span>
+<span class="keyword">def</span> <span class="function">draw_firework</span>(<span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">size</span>, <span class="parameter">color</span>):
+    <span class="function">penup</span>()
+    <span class="function">pencolor</span>(<span class="parameter">color</span>)
+    <span class="function">goto</span>(<span class="parameter">x</span>, <span class="parameter">y</span>)
+    <span class="function">pendown</span>()
+    <span class="keyword">for</span> <span class="parameter">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="string">36</span>):
+        <span class="function">forward</span>(<span class="parameter">size</span>)
+        <span class="function">goto</span>(<span class="parameter">x</span>, <span class="parameter">y</span>)
+        <span class="function">right</span>(<span class="string">10</span>)
+        
+<span class="comment"># Calls draw_firework() between 12 and 18 times to put on a fireworks show for the user.</span>
+<span class="keyword">def</span> <span class="function">random_fireworks</span>(<span class="parameter">min_size</span>, <span class="parameter">max_size</span>):
+    <span class="parameter">num_fireworks</span> = <span class="parameter">random</span>.<span class="function">randint</span>(<span class="string">12</span>, <span class="string">18</span>)
+    <span class="comment"># List colors[] stores the possible colors for the function to choose randomly from each time it calls draw_firework()</span>
+    <span class="parameter">colors</span> = [<span class="string">"yellow"</span>, <span class="string">"mediumblue"</span>, <span class="string">"orangered"</span>, <span class="string">"violet"</span>, <span class="string">"maroon"</span>, <span class="string">"limegreen"</span>, <span class="string">"goldenrod1"</span>, <span class="string">"Deepskyblue"</span>, <span class="string">"magenta"</span>, <span class="string">"turquoise1"</span>, <span class="string">"blue"</span>, <span class="string">"chartreuse1"</span>, <span class="string">"cyan1"</span>, <span class="string">"gold"</span>, <span class="string">"ivory"</span>, <span class="string">"firebrick1"</span>, <span class="string">"green"</span>, <span class="string">"white"</span>, <span class="string">"violetred1"</span>, <span class="string">"tomato"</span>, <span class="string">"springgreen"</span>]
+    <span class="keyword">for</span> <span class="parameter">i</span> <span class="keyword">in</span> <span class="function">range</span>(<span class="parameter">num_fireworks</span>):
+        <span class="parameter">size</span> = <span class="parameter">random</span>.<span class="function">randint</span>(<span class="parameter">min_size</span>, <span class="parameter">max_size</span>)
+        <span class="parameter">color</span> = <span class="parameter">random</span>.<span class="function">choice</span>(<span class="parameter">colors</span>)
+        <span class="parameter">x</span> = <span class="function">random_x</span>(-<span class="string">300</span>, <span class="string">300</span>)
+        <span class="parameter">y</span> = <span class="function">random_y</span>(<span class="string">150</span>, <span class="string">300</span>)
+        <span class="function">draw_firework</span>(<span class="parameter">x</span>, <span class="parameter">y</span>, <span class="parameter">size</span>, <span class="parameter">color</span>)</code>
+</div>
+    </section>
+        
+    <!-- the scene -->
+    <section>
+        <h2>Final Scene Examples</h2>
+        
+        <div class="scene-container">
+            <img src="Project1a.png" alt="Turtle Graphics Scene - A cool fireworks display over the ocean." class="scene-image">
+            <img src="Project1b.png" alt="Turtle Graphics Scene - A cool fireworks display over the ocean." class="scene-image">
+        </div>
+        
+        <p class="scene-description">
+            An interesting area to look back upon with this project is how I would have changed it if I were beginning
+            it today. For example, I don't really know why I created entire functions to generate random x and y 
+            coordinates, but not color or size. I certainly  would have changed the raondom_fireworks() function to
+            take the minimum and maximum fireworks as parameters instead of hardcoding them into the function.
+            I also think I would've added more comments to the code after learning their importance. 
+        </p>
+    </section>
+
+     <footer>
+        <p>© 2026 James Converse <br>
+            Background Images From: <a href="https://unsplash.com/">https://unsplash.com/</a> <br>
+            HTML Base From: Professor Aye's demo file.</p>
+    </footer>
+</body>
+</html>
